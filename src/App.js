@@ -17,7 +17,6 @@ function App() {
       <Route path="/productlist" component={ProductList}>
           <ProductList />
         </Route>
-
         <Route path="/cart" component={Cart}>
           <Cart />
         </Route>

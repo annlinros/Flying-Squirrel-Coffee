@@ -5,6 +5,7 @@ import Product from "./Product";
 
 export default class ProductList extends Component {
     render() {
+
         return (
             <div>
                 <h1 className='title'>Our Products</h1>
@@ -12,7 +13,7 @@ export default class ProductList extends Component {
                     <div className='row'>
                         <ProductConsumer>
                             {
-                                value => value.products.map(product => console.log(product))
+                                value => value.products.map(product => <Product key={product.id} product={product}/>)
                             }                        
                         </ProductConsumer>
                     </div>
