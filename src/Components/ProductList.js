@@ -8,8 +8,7 @@ export default class ProductList extends Component {
 
         return (
             <div>
-                <h1 className='title'>Our Products</h1>
-                <div className="container">
+                <div className="products">
                     <div className='row'>
                         <ProductConsumer>
                             {
@@ -18,7 +17,6 @@ export default class ProductList extends Component {
                         </ProductConsumer>
                     </div>
                 </div>
-
             </div>
               )
     }

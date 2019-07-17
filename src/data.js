@@ -49,7 +49,7 @@ export const storeProducts = [
   {
     id: 5,
     title: "Sunkissed",
-    img: "img/sunkissed-new.jpg",
+    img: "img/sunkissed.jpg",
     price: 24,
     info:
       "A fruity, buttery, slightly sweet coffee made from a long-drawn process of drying the bean with the pulp on. The perfect Buttercup, if ever there was one. This freshly roasted-on-order coffee is one of our proud artisan coffees. We leave a bit of the fruity pulp on the bean before drying it out under the glorious Kodagu sun, and this creates interesting nuances in the final tasting cup. Sunkissed by The Flying Squirrel is a truly special, finely processed Robusta.",

@@ -12,7 +12,6 @@ export default function Product({ product }) {
             <Link to="/details">
               <img className="card-img-top" src={img} alt={title} />
             </Link>
-            <button className="btn btn-primary ">Cart</button>
           </div>
           <div className="card-footer d-flex justify-content-between">
             <p className="card-title">{title}</p>
@@ -25,7 +24,7 @@ export default function Product({ product }) {
   
   const ProductWrapper = styled.div`
   .card {
-    border-color: transparent;
+    border-color: .05rem solid #8b4513;
     transition: all 0.2s linear;
   }
   .card-footer {
