@@ -24,7 +24,7 @@ export default function Product({ product }) {
   
   const ProductWrapper = styled.div`
   .card {
-    border-color: .05rem solid #8b4513;
+    border-color: .5rem solid #fff;
     transition: all 0.2s linear;
   }
   .card-footer {
@@ -33,7 +33,7 @@ export default function Product({ product }) {
   }
   &:hover {
     .card {
-      box-shadow: 0.2rem 0.2rem 0.5rem 0rem #a9a9a9;
+       box-shadow: 0.2rem 0.2rem 0.5rem 0rem #a9a9a9;
     }
   }
 `;
