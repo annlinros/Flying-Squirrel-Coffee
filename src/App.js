@@ -4,7 +4,6 @@ import "./App.css";
 import Cart from "./Components/Cart";
 import  ProductList from "./Components/ProductList";
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import Navbar from "./Components/Navbar";
 
 function App() {
@@ -12,8 +11,11 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
-      <Route path="/productlist" component={ProductList}>
+        <Route path="/productlist" component={ProductList}>
           <ProductList />
+        </Route>
+        <Route path="/cart" component={Cart}>
+          <Cart />
         </Route>
         <Route path="/cart" component={Cart}>
           <Cart />

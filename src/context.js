@@ -1,27 +1,48 @@
 import React, { Component } from "react";
-import {storeProducts,detailProduct} from "./data";
+import { storeProducts, detailProduct } from "./data";
 
 const ProductContext = React.createContext();
 
 class ProductProvider extends Component {
-  state= {
-    products:storeProducts,
+  state = {
+    products: [],
     detailProduct
+  };
+
+  componentDidMount() {
+    this.setProducts();
   }
+
+  setProducts = () => {
+    let products = [];
+    storeProducts.forEach(item => {
+      const singleItem = { ...item };
+      products = [...products, singleItem];
+    });
+    this.setState({ 
+      products 
+    });
+  };
+  
   handleDetail = () => {
-    console.log("Details!")
-  }
-  addToCart= () => {
-    console.log('added to cart');
-  }
+    console.log("Details!");
+  };
+  addToCart = () => {
+    console.log("added to cart");
+  };
   render() {
-    return <ProductContext.Provider value={{
-      ...this.state, 
-      handleDetail:this.handleDetail, 
-      addToCart:this.addToCart}}>
-      {this.props.children}
-    </ProductContext.Provider>
+    return (
+      <ProductContext.Provider
+        value={{
+          ...this.state,
+          handleDetail: this.handleDetail,
+          addToCart: this.addToCart
+        }}
+      >
+        {this.props.children}
+      </ProductContext.Provider>
+    );
   }
 }
- const ProductConsumer = ProductContext.Consumer
- export { ProductProvider,ProductConsumer}
+const ProductConsumer = ProductContext.Consumer;
+export { ProductProvider, ProductConsumer };

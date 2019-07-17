@@ -94,12 +94,11 @@ export const storeProducts = [
 
 export const detailProduct = {
   id: 1,
-  title: "Google Pixel - Black",
-  img: "img/product-1.jpg",
+  title: "Cafe Chic",
+  img: "img/cafe-chic.jpg",
   price: 10,
-  company: "google",
   info:
-    "Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.",
+    "The coffee that got 'kaapi' included in the English dictionary. A classic peaberry blend with the right balance of Chicory for that flawless South Indian glass. Cafe Chic is The Flying Squirrel’s only coffee with added chicory, for those who like that deep, smokey, accentuated south-indian filter coffee flavour. The best way to brew this coffee is using a South Indian stainless steel filter.",
   inCart: false,
   count: 0,
   total: 0
