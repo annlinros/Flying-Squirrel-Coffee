@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { ButtonElement } from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 
 export default class Product extends Component {
 
@@ -12,17 +16,17 @@ export default class Product extends Component {
         <div className="card">
           <div className="img-container">
             <Link to="/details">
-              <img
-                className="card-img-top"
-                src={img}
-                alt={title}
-              />
+              <img className="card-img-top" src={img} alt={title} />
             </Link>
           </div>
           <div className="card-footer d-flex justify-content-between">
             <p className="card-title">{title}</p>
             <p>${price}</p>
           </div>
+          <ButtonElement className="d-flex justify-content-center-around">
+            Add to Cart
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </ButtonElement>
         </div>
       </ProductWrapper>
     );

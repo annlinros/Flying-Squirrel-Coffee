@@ -42,7 +42,7 @@ export default class Details extends Component {
                     <button>Add to Cart</button>
                   </Link>
                   <Link to="/productlist">
-                    <button>Back to Products</button>
+                    <button>Back to Products!</button>
                   </Link>
                 </div>
               </div>

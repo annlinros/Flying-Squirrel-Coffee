@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../logo.jpg";
 import { ButtonElement } from "./Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
 export class Navbar extends Component {
   render() {
     return (
@@ -11,9 +14,12 @@ export class Navbar extends Component {
         <Link to="/productlist">
           <ButtonElement>Shop</ButtonElement>
         </Link>
-{"/"}
+        {"/"}
         <Link to="/cart">
-          <ButtonElement>Cart</ButtonElement>
+          <ButtonElement>
+            {" "}
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </ButtonElement>
         </Link>
       </nav>
     );
