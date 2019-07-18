@@ -8,7 +8,7 @@ class ProductProvider extends Component {
     products: [],
     detailProduct
   };
-
+//  setting "products on state"
   componentDidMount() {
     this.setProducts();
   }
@@ -23,9 +23,17 @@ class ProductProvider extends Component {
       products 
     });
   };
+// Handling the click event to show Product details.
 
-  handleDetail = () => {
-    console.log("Details!");
+  getProduct = (id) => {
+  return this.state.products.find(item=> item.id === id)
+ }
+  handleDetail = (id) => {
+   const product = this.getProduct(id)
+   this.setState({
+     detailProduct: product
+   })
+    console.log("Details!" ,id );
   };
   addToCart = () => {
     console.log("added to cart");

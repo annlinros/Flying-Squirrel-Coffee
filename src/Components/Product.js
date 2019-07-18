@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { ProductConsumer } from "../context";
 import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,16 +8,25 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default class Product extends Component {
   render() {
-    const { img, title, price } = this.props.product;
+    const { id, img, title, price } = this.props.product;
 
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
         <div className="card">
-          <div className="img-container">
-            <Link to="/details">
-              <img className="card-img-top" src={img} alt={title} />
-            </Link>
-          </div>
+          <ProductConsumer>
+            {value => (
+              <div className="img-container">
+                <Link to="/details">
+                  <img
+                    className="card-img-top"
+                    src={img}
+                    alt={title}
+                    onClick={() => value.handleDetail(id)}
+                  />
+                </Link>
+              </div>
+            )}
+          </ProductConsumer>
           <div className="card-footer d-flex justify-content-between ">
             <p className="card-title">{title}</p>
             <p>${price}</p>
@@ -25,9 +35,7 @@ export default class Product extends Component {
             <ButtonElement heart className="heart-btn">
               <FontAwesomeIcon icon={faHeart} />
             </ButtonElement>
-            <ButtonElement className="cart-btn">
-              ADD TO CART
-            </ButtonElement>
+            <ButtonElement className="cart-btn">ADD TO CART</ButtonElement>
           </div>
         </div>
       </ProductWrapper>
@@ -61,6 +69,5 @@ const ProductWrapper = styled.div`
     .cart-btn {
       background: var(--mainBrown);
     }
-
   }
 `;

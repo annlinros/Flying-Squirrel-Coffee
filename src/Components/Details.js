@@ -10,7 +10,7 @@ export default class Details extends Component {
       <ProductConsumer>
         {value => {
           const {
-            // id,
+            id,
             title,
             // price,
             img,
