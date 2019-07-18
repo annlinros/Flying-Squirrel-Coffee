@@ -8,11 +8,11 @@ export class Navbar extends Component {
       <nav className="navbar navbar-expand-sm  bg-white">
         <img src={logo} alt="logo" className="navbar-brand" />
         <h1 className="title mr-auto">THE FLYING SQUIRREL</h1>
-        <Link to="/productlist" className="">
+        <Link to="/productlist">
           <ButtonElement>Shop</ButtonElement>
         </Link>
 {"/"}
-        <Link to="/cart" className="">
+        <Link to="/cart">
           <ButtonElement>Cart</ButtonElement>
         </Link>
       </nav>

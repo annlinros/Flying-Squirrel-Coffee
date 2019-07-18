@@ -5,8 +5,10 @@ export const storeProducts = [
     img: "img/cafe-chic.jpg",
     price: 10,
     info:
-      "The coffee that got 'kaapi' included in the English dictionary. A classic peaberry blend with the right balance of Chicory for that flawless South Indian glass. Cafe Chic is The Flying Squirrel’s only coffee with added chicory, for those who like that deep, smokey, accentuated south-indian filter coffee flavour. The best way to brew this coffee is using a South Indian stainless steel filter.",
-
+      "Café Chic is meant to be consumed with milk, and works best when brewed using a traditional south-Indian filter",
+    ingredients: "Coffee, Chicory(20%)",
+    flavour: "Deep,Roasty, Heavy Body",
+    roast: "Medium Dark Roast",
     inCart: false,
     count: 0,
     total: 0
@@ -17,8 +19,10 @@ export const storeProducts = [
     img: "img/aromatique.jpg",
     price: 16,
     info:
-      "Mild sweetness reminiscent of fruit and berries with a touch of mellow caramel and an almost wine-like rounded acidity. Aromatique is a select Arabica single estate coffee, naturally processed. Handpicked beans undergo a very mild fermentation to create this highly sophisticated coffee, rich in aroma and presence. Like all the other coffees from The Flying Squirrel, Aromatique is a light roast, roasted in small batches, ground and packed on order.",
-
+      "Aromatique, like all good Arabicas, is best served black. If you’d like to drink it with milk or cream, add it to the brew in smaller quantities",
+    ingredients: "Coffee (100%)",
+    flavour: "Wine-like Acidity, Mild Fruitiness",
+    roast: "Light Roast",
     inCart: false,
     count: 0,
     total: 0
@@ -31,6 +35,10 @@ export const storeProducts = [
     company: "htc",
     info:
       "Our house blend for that perfect wake-up jolt. A rich coffee you'd be proud to serve your guests, as well as people you genuinely like. Deep Bliss is a deep, dark, roasty, intense blend, designed in the labs of the India Coffee Board, exclusively for The Flying Squirrel",
+    ingredients: " 100% Coffee",
+    flavour: "Berry & Chocolate notes with a velvety finish",
+    roast: "Medium Roast",
+
     inCart: false,
     count: 0,
     total: 0
@@ -42,6 +50,10 @@ export const storeProducts = [
     price: 18,
     info:
       "With notes that range from banana to wild berry, these virgin beans have been untouched by chemicals, fertilizers or sprays. Coffee just the way God grows it. Our Organic arabica coffee is grown on a estate which has soil certification too - which means while we definitely do not use any sort of chemicals or pesticides when cultivating, our soil too does not contain any past traces or residue of harmful chemicals.",
+    ingredients: " 100% Coffee",
+    flavour: "Berry & Chocolate notes with a velvety finish",
+    roast: "Medium Roast",
+
     inCart: false,
     count: 0,
     total: 0
@@ -53,6 +65,10 @@ export const storeProducts = [
     price: 24,
     info:
       "A fruity, buttery, slightly sweet coffee made from a long-drawn process of drying the bean with the pulp on. The perfect Buttercup, if ever there was one. This freshly roasted-on-order coffee is one of our proud artisan coffees. We leave a bit of the fruity pulp on the bean before drying it out under the glorious Kodagu sun, and this creates interesting nuances in the final tasting cup. Sunkissed by The Flying Squirrel is a truly special, finely processed Robusta.",
+    ingredients: " 100% Coffee",
+    flavour: "Berry & Chocolate notes with a velvety finish",
+    roast: "Medium Roast",
+
     inCart: false,
     count: 0,
     total: 0
@@ -64,6 +80,10 @@ export const storeProducts = [
     price: 17,
     info:
       "Our single-estate Arabica beans are taken past the second crack in this bold French roast. Bittersweet notes with really low levels of acidity for those who like their coffee strong, dark and really good looking.",
+    ingredients: " 100% Coffee",
+    flavour: "Berry & Chocolate notes with a velvety finish",
+    roast: "Medium Roast",
+
     inCart: false,
     count: 0,
     total: 0
@@ -75,6 +95,10 @@ export const storeProducts = [
     price: 30,
     info:
       "Strong creamy mouthfeel with bubbles of dark chocolate and caramel. A lining of bitter-sweet bright nuances envelopes the cup, adding depth and dimension, to the creamy, smooth, chocolatey-caramel notes.This freshly roasted-on-order coffee is our finest blend, designed by the world renowned Sunalini Menon.",
+    ingredients: "100% Coffee",
+    flavour: "Berry & Chocolate notes with a velvety finish",
+    roast: "Medium Roast",
+
     inCart: false,
     count: 0,
     total: 0
@@ -85,7 +109,10 @@ export const storeProducts = [
     img: "img/cold-brew-blend.jpg",
     price: 2,
     info:
-      "If the right coffee beans are used for cold brew, and if these right coffee beans have been roasted perfectly, the resultant brew will have a rich mouthfeel, an amplification of the big flavours - sweetness, earthiness, chocolate etc., and a clear lining of the smaller, more delicate flavours characteristic to the terroir of the coffee. The Flying Squirrel Cold Brew Blend is exactly that, we use a medium roast coffee that’s been roasted using a unique profile that delays caramelization of the bean sugars until the very last few moments of the roast. The blend contains Honey Sun Dried Arabica and some Arabica Peaberry amongst other beans.",
+      "Cold brew coffee is a beautifully refreshing way to drink coffee, and the brewing itself draws out the natural sweetness of a roast perfectly while keeping a check on the acidity and bitterness.",
+    ingredients: " 100% Coffee",
+    flavour: "Berry & Chocolate notes with a velvety finish",
+    roast: "Medium Roast",
     inCart: false,
     count: 0,
     total: 0
@@ -98,7 +125,10 @@ export const detailProduct = {
   img: "img/cafe-chic.jpg",
   price: 10,
   info:
-    "The coffee that got 'kaapi' included in the English dictionary. A classic peaberry blend with the right balance of Chicory for that flawless South Indian glass. Cafe Chic is The Flying Squirrel’s only coffee with added chicory, for those who like that deep, smokey, accentuated south-indian filter coffee flavour. The best way to brew this coffee is using a South Indian stainless steel filter.",
+    "Café Chic is meant to be consumed with milk, and works best when brewed using a traditional south-Indian filter",
+  ingredients: " 100% Coffee",
+  flavour: "Berry & Chocolate notes with a velvety finish",
+  roast: "Medium Roast",
   inCart: false,
   count: 0,
   total: 0

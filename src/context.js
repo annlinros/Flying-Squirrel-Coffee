@@ -16,14 +16,14 @@ class ProductProvider extends Component {
   setProducts = () => {
     let products = [];
     storeProducts.forEach(item => {
-      const singleItem = { ...item };
+      const singleItem = {...item };
       products = [...products, singleItem];
     });
     this.setState({ 
       products 
     });
   };
-  
+
   handleDetail = () => {
     console.log("Details!");
   };

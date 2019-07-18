@@ -1,16 +1,22 @@
-import React from 'react'
+import React, { Component } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+export default class Product extends Component {
 
-export default function Product({ product }) {
-    const {  img, title, price } = product;
+  render() {
+    const {  img, title, price } = this.props.product;
+
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
         <div className="card">
           <div className="img-container">
             <Link to="/details">
-              <img className="card-img-top" src={img} alt={title} />
+              <img
+                className="card-img-top"
+                src={img}
+                alt={title}
+              />
             </Link>
           </div>
           <div className="card-footer d-flex justify-content-between">
@@ -21,10 +27,11 @@ export default function Product({ product }) {
       </ProductWrapper>
     );
   }
-  
-  const ProductWrapper = styled.div`
+}
+
+const ProductWrapper = styled.div`
   .card {
-    border-color: .5rem solid #fff;
+    border-color: 0.5rem solid #fff;
     transition: all 0.2s linear;
   }
   .card-footer {
@@ -33,7 +40,7 @@ export default function Product({ product }) {
   }
   &:hover {
     .card {
-       box-shadow: 0.2rem 0.2rem 0.5rem 0rem #a9a9a9;
+      box-shadow: 0.2rem 0.2rem 0.5rem 0rem #a9a9a9;
     }
   }
 `;
