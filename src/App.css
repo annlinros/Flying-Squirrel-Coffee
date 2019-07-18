@@ -1,5 +1,5 @@
 :root {
-  --mainBrown: #6f4e37;
+  --mainBrown: #654321;
 }
 
 body {
@@ -32,5 +32,5 @@ body {
   color: #fff;
 }
 .sub-info{
-  color: #6f4e37;
+  color: var(--mainBrown);
 }

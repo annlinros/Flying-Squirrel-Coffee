@@ -3,13 +3,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default class Product extends Component {
-
   render() {
-    const {  img, title, price } = this.props.product;
+    const { img, title, price } = this.props.product;
 
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
@@ -19,14 +17,18 @@ export default class Product extends Component {
               <img className="card-img-top" src={img} alt={title} />
             </Link>
           </div>
-          <div className="card-footer d-flex justify-content-between">
+          <div className="card-footer d-flex justify-content-between ">
             <p className="card-title">{title}</p>
             <p>${price}</p>
           </div>
-          <ButtonElement className="d-flex justify-content-center-around">
-            Add to Cart
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </ButtonElement>
+          <div>
+            <ButtonElement heart className="heart-btn">
+              <FontAwesomeIcon icon={faHeart} />
+            </ButtonElement>
+            <ButtonElement cart className="cart-btn">
+              ADD TO CART
+            </ButtonElement>
+          </div>
         </div>
       </ProductWrapper>
     );
@@ -35,16 +37,23 @@ export default class Product extends Component {
 
 const ProductWrapper = styled.div`
   .card {
-    border-color: 0.5rem solid #fff;
+    border: 0.1rem solid #fff;
     transition: all 0.2s linear;
   }
   .card-footer {
     border: none;
     background: transparent;
+    padding: 0.5rem;
   }
-  &:hover {
-    .card {
-      box-shadow: 0.2rem 0.2rem 0.5rem 0rem #a9a9a9;
-    }
+  .card-footer > * {
+    margin: 0;
+  }
+  .heart-btn {
+    width: 30%;
+  }
+  .cart-btn {
+    width: 70%;
+    letter-spacing: 0.1rem;
+    background: var(--mainBrown);
   }
 `;
