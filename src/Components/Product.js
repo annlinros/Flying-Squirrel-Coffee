@@ -25,7 +25,7 @@ export default class Product extends Component {
             <ButtonElement heart className="heart-btn">
               <FontAwesomeIcon icon={faHeart} />
             </ButtonElement>
-            <ButtonElement cart className="cart-btn">
+            <ButtonElement className="cart-btn">
               ADD TO CART
             </ButtonElement>
           </div>
@@ -54,6 +54,13 @@ const ProductWrapper = styled.div`
   .cart-btn {
     width: 70%;
     letter-spacing: 0.1rem;
-    background: var(--mainBrown);
+    background: #fff;
+    color: #000;
+  }
+  &:hover {
+    .cart-btn {
+      background: var(--mainBrown);
+    }
+
   }
 `;

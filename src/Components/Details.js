@@ -3,6 +3,7 @@ import { ProductConsumer } from "../context";
 import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 
+
 export default class Details extends Component {
   render() {
     return (
@@ -38,11 +39,11 @@ export default class Details extends Component {
                   </p>
                   <p> {info}</p>
                   <Link to="/cart">
-                    {/* <ButtonElement>Add to Cart</ButtonElement> */}
-                    <button>Add to Cart</button>
+                    < ButtonElement>Add to Cart</ButtonElement>
                   </Link>
+                  {" "}
                   <Link to="/productlist">
-                    <button>Back to Products!</button>
+                    <ButtonElement>Back to Products!</ButtonElement>
                   </Link>
                 </div>
               </div>

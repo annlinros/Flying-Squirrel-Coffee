@@ -30,6 +30,7 @@ body {
 .details{
   background-color: #000;
   color: #fff;
+  margin: none;
 }
 .sub-info{
   color: var(--mainBrown);

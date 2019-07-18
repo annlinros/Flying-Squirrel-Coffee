@@ -12,11 +12,11 @@ export class Navbar extends Component {
         <img src={logo} alt="logo" className="navbar-brand" />
         <h1 className="title mr-auto">THE FLYING SQUIRREL</h1>
         <Link to="/productlist">
-          <ButtonElement>Shop</ButtonElement>
+          <ButtonElement navBtn>Shop</ButtonElement>
         </Link>
         {"/"}
         <Link to="/cart">
-          <ButtonElement>
+          <ButtonElement navBtn>
             {" "}
             <FontAwesomeIcon icon={faShoppingCart} />
           </ButtonElement>
