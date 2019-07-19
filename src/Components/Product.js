@@ -32,10 +32,21 @@ export default class Product extends Component {
             <p>${price}</p>
           </div>
           <div>
-            <ButtonElement heart className="heart-btn">
-              <FontAwesomeIcon icon={faHeart} />
-            </ButtonElement>
-            <ButtonElement className="cart-btn">ADD TO CART</ButtonElement>
+            <ProductConsumer>
+              {value => (
+                <React.Fragment>
+                  <ButtonElement heart className="heart-btn">
+                    <FontAwesomeIcon icon={faHeart} />
+                  </ButtonElement>
+                  <ButtonElement
+                    className="cart-btn"
+                    onClick={() => value.addToCart(id)}
+                  >
+                    ADD TO CART
+                  </ButtonElement>
+                </React.Fragment>
+              )}
+            </ProductConsumer>
           </div>
         </div>
       </ProductWrapper>
