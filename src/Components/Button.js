@@ -1,13 +1,15 @@
 import styled from "styled-components";
 export const ButtonElement = styled.button`
   background: #fff;
-  // color:  ${props => (props.navBtn ? "#000" : "#fff")};
-  border: ${props => (props.navBtn ? "none" : ".01rem solid #fff")};
+  border:none;
   padding: .5rem;
-  font-size: 1.3rem
+  font-size:  ${props => (props.navBtn ? "1.3rem" : "1rem")};
+  font-weight: 600
   outline:none;
   &:hover{
-    // color:  ${props => (props.cart ? "#fff" : "var(--mainBrown)")};
-    color: var(--mainBrown);
+    background:  ${props =>
+      props.navBtn ? "#fff" : "var(--mainBrown)"};
+    color: ${props => (props.navBtn ? "var(--mainBrown)" : "#000")};
+
   }
 `;
