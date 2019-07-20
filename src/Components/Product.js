@@ -38,12 +38,17 @@ export default class Product extends Component {
                   <ButtonElement heart className="heart-btn">
                     <FontAwesomeIcon icon={faHeart} />
                   </ButtonElement>
-                  <ButtonElement
-                    className="cart-btn"
-                    onClick={() => value.addToCart(id)}
-                  >
-                    ADD TO CART
-                  </ButtonElement>
+                  <Link to="/modal">
+                    <ButtonElement
+                      className="cart-btn"
+                      onClick={() => {
+                        value.addToCart(id);
+                        value.openModal(id);
+                      }}
+                    >
+                      ADD TO CART
+                    </ButtonElement>
+                  </Link>
                 </React.Fragment>
               )}
             </ProductConsumer>
@@ -54,7 +59,7 @@ export default class Product extends Component {
   }
 }
 
-const ProductWrapper = styled.div`
+export const ProductWrapper = styled.div`
   .card {
     border: 0.1rem solid #fff;
     transition: all 0.2s linear;

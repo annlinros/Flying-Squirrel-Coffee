@@ -11,10 +11,10 @@ export class Navbar extends Component {
       <nav className="navbar navbar-expand-sm  bg-white">
         <img src={logo} alt="logo" className="navbar-brand" />
         <h1 className="title mr-auto">THE FLYING SQUIRREL</h1>
-        <Link to="/productlist">
+        <Link to="/">
           <ButtonElement navBtn>Shop</ButtonElement>
-        </Link>
-        {"/"}
+        </Link> 
+         {"/"}
         <Link to="/cart">
           <ButtonElement navBtn>
             {" "}

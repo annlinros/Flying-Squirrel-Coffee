@@ -7,7 +7,8 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct,
-    cart: []
+    cart: [],
+    modalProduct: detailProduct
   };
 //  setting "products on state"
   componentDidMount() {
@@ -45,16 +46,31 @@ class ProductProvider extends Component {
     cartItem.total= price;
     this.setState({
       cart: [...this.state.cart,cartItem]
-    }, () =>  console.log("added to cart", this.state.products)
- )
+    })
   };
+
+  // Opening and Closing of Modal upon adding items to the cart
+
+  openModal = (id) => {
+    const product = this.getProduct(id);
+    console.log(product);
+    this.setState(
+      {
+        modalProduct: product,
+        modalOpen: true
+      },
+      () => console.log("modal", this.state.modalProduct)
+    );
+  }
+
   render() {
     return (
       <ProductContext.Provider
         value={{
           ...this.state,
           handleDetail: this.handleDetail,
-          addToCart: this.addToCart
+          addToCart: this.addToCart,
+          openModal: this.openModal,
         }}
       >
         {this.props.children}

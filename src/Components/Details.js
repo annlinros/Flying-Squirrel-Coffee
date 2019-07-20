@@ -14,7 +14,6 @@ export default class Details extends Component {
             title,
             // price,
             img,
-            // inCart,
             info,
             roast,
             flavour,
@@ -42,7 +41,7 @@ export default class Details extends Component {
                     < ButtonElement>Add to Cart</ButtonElement>
                   </Link>
                   {" "}
-                  <Link to="/productlist">
+                  <Link to="/">
                     <ButtonElement>Back to Products!</ButtonElement>
                   </Link>
                 </div>
