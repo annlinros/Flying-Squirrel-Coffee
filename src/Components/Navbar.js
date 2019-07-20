@@ -8,19 +8,21 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 export class Navbar extends Component {
   render() {
     return (
-      <nav className="navbar navbar-expand-sm  bg-white">
+      <nav className="navbar navbar-expand-sm  bg-white d-flex justify-content-between">
         <img src={logo} alt="logo" className="navbar-brand" />
-        <h1 className="title mr-auto">THE FLYING SQUIRREL</h1>
-        <Link to="/">
-          <ButtonElement navBtn>Shop</ButtonElement>
-        </Link> 
-         {"/"}
-        <Link to="/cart">
-          <ButtonElement navBtn>
-            {" "}
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </ButtonElement>
-        </Link>
+        <h1 className="title ml-5">THE FLYING SQUIRREL</h1>
+        <div className="m-4">
+          <Link to="/">
+            <ButtonElement navBtn>Shop</ButtonElement>
+          </Link>
+          {"/"}
+          <Link to="/cart">
+            <ButtonElement navBtn>
+              {" "}
+              <FontAwesomeIcon icon={faShoppingCart} />
+            </ButtonElement>
+          </Link>
+        </div>
       </nav>
     );
   }

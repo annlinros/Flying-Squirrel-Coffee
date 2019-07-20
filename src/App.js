@@ -1,18 +1,20 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import "./App.css";
-import Cart from "./Components/Cart";
-import Details from "./Components/Details";
-import  ProductList from "./Components/ProductList";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Components/Navbar";
+import ProductList from "./Components/ProductList";
+import Modal from "./Components/Modal";
+import Cart from "./Components/Cart";
+import Details from "./Components/Details";
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path="/productlist" component={ProductList}>
+        <Route exact path="/" component={ProductList}>
           <ProductList />
         </Route>
         <Route path="/cart" component={Cart}>
@@ -22,6 +24,7 @@ function App() {
           <Details />
         </Route>
       </Switch>
+      <Modal/>
     </div>
   );
 }
