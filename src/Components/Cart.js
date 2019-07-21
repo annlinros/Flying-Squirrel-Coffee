@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { Component } from "react";
+import { ProductConsumer } from "../context";
+import CartColumns from './CartColumns'
 
-export default function Cart() {
+export default class Cart extends Component {
+  render() {
     return (
-        <div>
-            <h1>Hello from Cart</h1>
-        </div>
-    )
+      <React.Fragment>
+        <h1 className="title">Your Cart</h1>
+        <CartColumns />
+        <ProductConsumer>
+            {value => {
+                value.cart.map(item=> <CartColumns item={item}/> )
+            }}
+        </ProductConsumer>
+      </React.Fragment>
+    );
+  }
 }
