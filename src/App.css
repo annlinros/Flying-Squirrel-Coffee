@@ -35,3 +35,14 @@ body {
 .sub-info{
   color: var(--mainBrown);
 }
+/* CART COMPONENT */
+.btn-black{
+  border: .1rem solid #000 !important;
+  font-size: .7rem !important;
+  border-radius: 0 !important;
+  
+}
+.btn-black:hover{
+  background: #000;
+  color: #fff !important;
+}

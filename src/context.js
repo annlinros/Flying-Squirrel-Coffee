@@ -7,7 +7,7 @@ class ProductProvider extends Component {
   state = {
     products: [],
     detailProduct,
-    cart: storeProducts,
+    cart: [],
     modalProduct: detailProduct,
     modalOpen: false
   };
@@ -78,7 +78,7 @@ class ProductProvider extends Component {
     console.log("decremented");
   };
   // Remove item from cart
-  clearCartItem = id => {
+  removeCartItem = id => {
     console.log("item cleared");
   };
 
@@ -98,7 +98,7 @@ class ProductProvider extends Component {
           closeModal: this.closeModal,
           incrementCount:this.incrementCount,
           decrementCount: this.decrementCount,
-          clearCartItem:this.clearCartItem,
+          removeCartItem:this.removeCartItem,
           resetCart:this.resetCart
         }}
       >

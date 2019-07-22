@@ -11,16 +11,21 @@ export default class Cart extends Component {
       <ProductConsumer>
         {value => {
           const { cart } = value;
+
+          // If there are items in cart
+
           if (cart.length > 0) {
             return (
               <React.Fragment>
                 <h1 className="title">Your Cart</h1>
                 <CartColumns />
-                <CartList/>
+                <CartList value={value}/>
               </React.Fragment>
             );
           } else {
+
             //   If cart is empty
+
             return (
               <div className="d-flex flex-column align-items-center p-5">
                 <h1 className="text-center">Your cart is empty!</h1>
