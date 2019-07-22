@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { ProductConsumer } from "../context";
-import CartColumns from "./CartColumns";
+import { ProductConsumer } from "../../context";
 import { Link } from "react-router-dom";
+import CartColumns from "./CartColumns";
+import CartList from "./CartList";
 
 
 export default class Cart extends Component {
@@ -15,9 +16,11 @@ export default class Cart extends Component {
               <React.Fragment>
                 <h1 className="title">Your Cart</h1>
                 <CartColumns />
+                <CartList/>
               </React.Fragment>
             );
           } else {
+            //   If cart is empty
             return (
               <div className="d-flex flex-column align-items-center p-5">
                 <h1 className="text-center">Your cart is empty!</h1>
