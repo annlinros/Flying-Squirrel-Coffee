@@ -9,7 +9,10 @@ class ProductProvider extends Component {
     detailProduct,
     cart: [],
     modalProduct: detailProduct,
-    modalOpen: false
+    modalOpen: false,
+    cartSubTotal: 0,
+    cartTax: 0,
+    cartTotal: 0
   };
   //  setting "products on state"
   componentDidMount() {
@@ -49,7 +52,7 @@ class ProductProvider extends Component {
       {
         cart: [...this.state.cart, cartItem]
       },
-      () => console.log("aded to cart", this.state.cart)
+      () => this.addTotals()
     );
   };
 
@@ -68,23 +71,77 @@ class ProductProvider extends Component {
       modalOpen: false
     });
   };
-  // Increment and decrement product count in cart
+  // Increment product count in cart
 
   incrementCount = id => {
-    console.log("incremented");
+    let tempCart = [...this.state.cart];
+
+    const incrementedCartItem = tempCart.find(item => item.id === id);
+
+    incrementedCartItem.count += 1;
+    incrementedCartItem.total =
+      incrementedCartItem.price * incrementedCartItem.count;
+
+    this.setState(
+      {
+        cart: [...tempCart]
+      },
+      this.addTotals()
+    );
   };
+  // Decrement product count in cart
 
   decrementCount = id => {
-    console.log("decremented");
+    let tempCart = [...this.state.cart];
+
+    const decrementedCartItem = tempCart.find(item => item.id === id);
+
+    decrementedCartItem.count -= 1;
+    if (decrementedCartItem.count === 0) {
+      this.removeCartItem(id);
+    } else {
+      decrementedCartItem.total =
+        decrementedCartItem.price * decrementedCartItem.count;
+      this.setState(
+        {
+          cart: [...tempCart]
+        },
+        this.addTotals()
+      );
+    }
   };
   // Remove item from cart
   removeCartItem = id => {
-    console.log("item cleared");
+    const newCartItems = this.state.cart.filter(item => id !== item.id);
+    this.setState(
+      {
+        cart: [...newCartItems]
+      },
+      () => this.addTotals()
+    );
   };
 
   // Reset cart
-  resetCart = id => {
-    console.log("cart resetted");
+  resetCart = () => {
+    this.setState({
+      cart: []
+    }, () => {
+      this.setProducts();
+      this.addTotals()
+    });
+  };
+  //  Calculate total amount in cart
+  addTotals = () => {
+    let cartSubTotal = 0;
+    this.state.cart.map(item => (cartSubTotal += item.total));
+    const tempTax = cartSubTotal * 0.1;
+    const cartTax = parseFloat(tempTax.toFixed(2));
+    const cartTotal = cartSubTotal + cartTax;
+    this.setState({
+      cartSubTotal,
+      cartTax,
+      cartTotal
+    });
   };
 
   render() {
@@ -96,10 +153,10 @@ class ProductProvider extends Component {
           addToCart: this.addToCart,
           openModal: this.openModal,
           closeModal: this.closeModal,
-          incrementCount:this.incrementCount,
+          incrementCount: this.incrementCount,
           decrementCount: this.decrementCount,
-          removeCartItem:this.removeCartItem,
-          resetCart:this.resetCart
+          removeCartItem: this.removeCartItem,
+          resetCart: this.resetCart
         }}
       >
         {this.props.children}

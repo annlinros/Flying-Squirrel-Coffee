@@ -56,7 +56,7 @@ export default function CartItem({ item, value }) {
       {/* Total */}
       <div className="col-10 mx-auto col-md-2">
         <span className="d-md-none">Price: </span>
-		{price}
+		{total }
       </div>
     </div>
   );

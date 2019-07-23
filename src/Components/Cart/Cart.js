@@ -3,7 +3,7 @@ import { ProductConsumer } from "../../context";
 import { Link } from "react-router-dom";
 import CartColumns from "./CartColumns";
 import CartList from "./CartList";
-
+import CartTotals from "./CartTotals";
 
 export default class Cart extends Component {
   render() {
@@ -19,11 +19,11 @@ export default class Cart extends Component {
               <React.Fragment>
                 <h1 className="title">Your Cart</h1>
                 <CartColumns />
-                <CartList value={value}/>
+                <CartList value={value} />
+                <CartTotals value={value} />
               </React.Fragment>
             );
           } else {
-
             //   If cart is empty
 
             return (
