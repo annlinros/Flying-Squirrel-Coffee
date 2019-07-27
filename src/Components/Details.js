@@ -3,7 +3,6 @@ import { ProductConsumer } from "../context";
 import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 
-
 export default class Details extends Component {
   render() {
     return (
@@ -12,7 +11,7 @@ export default class Details extends Component {
           const {
             id,
             title,
-            // price,
+            inCart,
             img,
             info,
             roast,
@@ -37,10 +36,12 @@ export default class Details extends Component {
                     <strong>Roast :</strong> {roast}
                   </p>
                   <p> {info}</p>
-                  <Link to="/cart">
-                    < ButtonElement>Add to Cart</ButtonElement>
-                  </Link>
-                  {" "}
+                  <ButtonElement
+                    onClick={() => value.addToCart(id)}
+                  >
+                    Add to cart
+                  </ButtonElement>
+                  {"   "}
                   <Link to="/">
                     <ButtonElement>Back to Products!</ButtonElement>
                   </Link>

@@ -9,7 +9,6 @@ class ProductProvider extends Component {
     detailProduct,
     cart: [],
     modalProduct: detailProduct,
-    modalOpen: false,
     cartSubTotal: 0,
     cartTax: 0,
     cartTotal: 0
@@ -44,40 +43,47 @@ class ProductProvider extends Component {
   // Add to Cart
 
   addToCart = id => {
+
     const cartItem = this.getProduct(id);
-    cartItem.count = 1;
-    const price = cartItem.price;
-    cartItem.total = price;
-    this.setState(
-      {
-        cart: [...this.state.cart, cartItem]
-      },
-      () => this.addTotals()
-    );
+
+    const cart = [...this.state.cart];
+
+    // If item is already in the cart,  increment the count
+    if (cart.indexOf(cartItem) >= 0) {
+      this.incrementCount(id);
+    }
+    // If item is not added, add it to cart.
+    else {
+      cartItem.count = 1;
+      const price = cartItem.price;
+      cartItem.total = price;
+
+      this.setState(
+        {
+          cart: [...this.state.cart, cartItem]
+        },
+        () => this.addTotals()
+      );
+    }
   };
 
-  // Opening and Closing of Modal upon adding items to the cart
+  // Opening of Modal upon adding items to the cart
 
   openModal = id => {
     const product = this.getProduct(id);
     console.log(product);
     this.setState({
-      modalProduct: product,
-      modalOpen: true
+      modalProduct: product
     });
   };
-  closeModal = () => {
-    this.setState({
-      modalOpen: false
-    });
-  };
+
   // Increment product count in cart
 
   incrementCount = id => {
     let tempCart = [...this.state.cart];
 
     const incrementedCartItem = tempCart.find(item => item.id === id);
-
+    console.log(incrementedCartItem);
     incrementedCartItem.count += 1;
     incrementedCartItem.total =
       incrementedCartItem.price * incrementedCartItem.count;
@@ -112,6 +118,7 @@ class ProductProvider extends Component {
   };
   // Remove item from cart
   removeCartItem = id => {
+
     const newCartItems = this.state.cart.filter(item => id !== item.id);
     this.setState(
       {
@@ -123,12 +130,15 @@ class ProductProvider extends Component {
 
   // Reset cart
   resetCart = () => {
-    this.setState({
-      cart: []
-    }, () => {
-      this.setProducts();
-      this.addTotals()
-    });
+    this.setState(
+      {
+        cart: []
+      },
+      () => {
+        this.setProducts();
+        this.addTotals();
+      }
+    );
   };
   //  Calculate total amount in cart
   addTotals = () => {
