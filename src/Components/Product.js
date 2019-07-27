@@ -4,7 +4,7 @@ import { ProductConsumer } from "../context";
 import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 export default class Product extends Component {
   render() {
@@ -35,9 +35,6 @@ export default class Product extends Component {
             <ProductConsumer>
               {value => (
                 <React.Fragment>
-                  <ButtonElement heart className="heart-btn">
-                    <FontAwesomeIcon icon={faHeart} />
-                  </ButtonElement>
                   <Link to="/modal">
                     <ButtonElement
                       className="cart-btn"
@@ -46,7 +43,8 @@ export default class Product extends Component {
                         value.openModal(id);
                       }}
                     >
-                      ADD TO CART
+                      ADD TO CART {" "}
+                      <FontAwesomeIcon icon={faShoppingCart} />
                     </ButtonElement>
                   </Link>
                 </React.Fragment>
@@ -72,11 +70,8 @@ export const ProductWrapper = styled.div`
   .card-footer > * {
     margin: 0;
   }
-  .heart-btn {
-    width: 30%;
-  }
   .cart-btn {
-    width: 70%;
+    width: 100%;
     letter-spacing: 0.1rem;
     background: #fff;
     color: #000;
