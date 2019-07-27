@@ -9,7 +9,6 @@ export const storeProducts = [
     ingredients: "Coffee, Chicory(20%)",
     flavour: "Deep,Roasty, Heavy Body",
     roast: "Medium Dark Roast",
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -23,7 +22,6 @@ export const storeProducts = [
     ingredients: "Coffee (100%)",
     flavour: "Wine-like Acidity, Mild Fruitiness",
     roast: "Light Roast",
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -38,8 +36,6 @@ export const storeProducts = [
     ingredients: " 100% Coffee",
     flavour: "Berry & Chocolate notes with a velvety finish",
     roast: "Medium Roast",
-
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -53,8 +49,6 @@ export const storeProducts = [
     ingredients: " 100% Coffee",
     flavour: "Berry & Chocolate notes with a velvety finish",
     roast: "Medium Roast",
-
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -68,8 +62,6 @@ export const storeProducts = [
     ingredients: " 100% Coffee",
     flavour: "Berry & Chocolate notes with a velvety finish",
     roast: "Medium Roast",
-
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -83,8 +75,6 @@ export const storeProducts = [
     ingredients: " 100% Coffee",
     flavour: "Berry & Chocolate notes with a velvety finish",
     roast: "Medium Roast",
-
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -98,8 +88,6 @@ export const storeProducts = [
     ingredients: "100% Coffee",
     flavour: "Berry & Chocolate notes with a velvety finish",
     roast: "Medium Roast",
-
-    inCart: false,
     count: 0,
     total: 0
   },
@@ -113,7 +101,6 @@ export const storeProducts = [
     ingredients: " 100% Coffee",
     flavour: "Berry & Chocolate notes with a velvety finish",
     roast: "Medium Roast",
-    inCart: false,
     count: 0,
     total: 0
   }
@@ -129,7 +116,6 @@ export const detailProduct = {
   ingredients: " 100% Coffee",
   flavour: "Berry & Chocolate notes with a velvety finish",
   roast: "Medium Roast",
-  inCart: false,
   count: 0,
   total: 0
 };

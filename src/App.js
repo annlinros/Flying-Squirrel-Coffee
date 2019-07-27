@@ -8,7 +8,6 @@ import Modal from "./Components/Modal";
 import Cart from "./Components/Cart/Cart";
 import Details from "./Components/Details";
 
-
 function App() {
   return (
     <div className="App">
@@ -22,9 +21,12 @@ function App() {
         </Route>
         <Route path="/details" component={Details}>
           <Details />
+        </Route>{" "}
+        <Route path="/modal" component={Modal}>
+          <Modal />
         </Route>
       </Switch>
-      <Modal/>
+      {/* <Modal /> */}
     </div>
   );
 }

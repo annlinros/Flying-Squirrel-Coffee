@@ -38,17 +38,17 @@ export default class Product extends Component {
                   <ButtonElement heart className="heart-btn">
                     <FontAwesomeIcon icon={faHeart} />
                   </ButtonElement>
-                  {/* <Link to="/modal"> */}
+                  <Link to="/modal">
                     <ButtonElement
                       className="cart-btn"
                       onClick={() => {
                         value.addToCart(id);
-                        // value.openModal(id);
+                        value.openModal(id);
                       }}
                     >
                       ADD TO CART
                     </ButtonElement>
-                  {/* </Link> */}
+                  </Link>
                 </React.Fragment>
               )}
             </ProductConsumer>

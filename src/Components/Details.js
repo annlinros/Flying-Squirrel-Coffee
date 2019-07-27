@@ -36,11 +36,12 @@ export default class Details extends Component {
                     <strong>Roast :</strong> {roast}
                   </p>
                   <p> {info}</p>
+                  <Link to='/modal'>
                   <ButtonElement
-                    onClick={() => value.addToCart(id)}
-                  >
+                    onClick={() => value.addToCart(id)}>
                     Add to cart
                   </ButtonElement>
+                  </Link>
                   {"   "}
                   <Link to="/">
                     <ButtonElement>Back to Products!</ButtonElement>

@@ -13,7 +13,9 @@ class ProductProvider extends Component {
     cartTax: 0,
     cartTotal: 0
   };
+
   //  setting "products on state"
+
   componentDidMount() {
     this.setProducts();
   }
@@ -28,6 +30,7 @@ class ProductProvider extends Component {
       products
     });
   };
+
   // Handling the click event to show Product details.
 
   getProduct = id => {
@@ -49,10 +52,12 @@ class ProductProvider extends Component {
     const cart = [...this.state.cart];
 
     // If item is already in the cart,  increment the count
+
     if (cart.indexOf(cartItem) >= 0) {
       this.incrementCount(id);
     }
     // If item is not added, add it to cart.
+
     else {
       cartItem.count = 1;
       const price = cartItem.price;
@@ -66,12 +71,11 @@ class ProductProvider extends Component {
       );
     }
   };
-
+  
   // Opening of Modal upon adding items to the cart
 
   openModal = id => {
     const product = this.getProduct(id);
-    console.log(product);
     this.setState({
       modalProduct: product
     });
@@ -83,7 +87,6 @@ class ProductProvider extends Component {
     let tempCart = [...this.state.cart];
 
     const incrementedCartItem = tempCart.find(item => item.id === id);
-    console.log(incrementedCartItem);
     incrementedCartItem.count += 1;
     incrementedCartItem.total =
       incrementedCartItem.price * incrementedCartItem.count;
@@ -116,7 +119,9 @@ class ProductProvider extends Component {
       );
     }
   };
+
   // Remove item from cart
+
   removeCartItem = id => {
 
     const newCartItems = this.state.cart.filter(item => id !== item.id);
@@ -129,6 +134,7 @@ class ProductProvider extends Component {
   };
 
   // Reset cart
+
   resetCart = () => {
     this.setState(
       {
@@ -140,6 +146,7 @@ class ProductProvider extends Component {
       }
     );
   };
+
   //  Calculate total amount in cart
   addTotals = () => {
     let cartSubTotal = 0;
