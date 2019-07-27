@@ -21,6 +21,11 @@ export default class Cart extends Component {
                 <CartColumns />
                 <CartList value={value} />
                 <CartTotals value={value} />
+                <Link to="/">
+                  <button className="btn btn-outline-secondary mx-auto d-flex justify-content-center">
+                    Continue shopping!
+                  </button>
+                </Link>
               </React.Fragment>
             );
           } else {
