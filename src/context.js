@@ -86,42 +86,33 @@ export const ProductProvider = props => {
 
   // Increment product count in cart
 
-  // incrementCount = id => {
-  //   let tempCart = [...state.cart];
+  const incrementCount = id => {
+    let tempCart = [...cart];
 
-  //   const incrementedCartItem = tempCart.find(item => item.id === id);
-  //   incrementedCartItem.count += 1;
-  //   incrementedCartItem.total =
-  //     incrementedCartItem.price * incrementedCartItem.count;
+    const incrementedCartItem = tempCart.find(item => item.id === id);
+    incrementedCartItem.count += 1;
+    incrementedCartItem.total =
+      incrementedCartItem.price * incrementedCartItem.count;
 
-  //   setState(
-  //     {
-  //       cart: [...tempCart]
-  //     },
-  //     addTotals()
-  //   );
-  // };
+    setCart(tempCart);
+  };
+
   // Decrement product count in cart
 
-  // decrementCount = id => {
-  //   let tempCart = [...state.cart];
+  const decrementCount = id => {
+    let tempCart = [...cart];
 
-  //   const decrementedCartItem = tempCart.find(item => item.id === id);
+    const decrementedCartItem = tempCart.find(item => item.id === id);
 
-  //   decrementedCartItem.count -= 1;
-  //   if (decrementedCartItem.count === 0) {
-  //     removeCartItem(id);
-  //   } else {
-  //     decrementedCartItem.total =
-  //       decrementedCartItem.price * decrementedCartItem.count;
-  //     setState(
-  //       {
-  //         cart: [...tempCart]
-  //       },
-  //       addTotals()
-  //     );
-  //   }
-  // };
+    decrementedCartItem.count -= 1;
+    if (decrementedCartItem.count === 0) {
+      removeCartItem(id);
+    } else {
+      decrementedCartItem.total =
+        decrementedCartItem.price * decrementedCartItem.count;
+      setCart(tempCart);
+    }
+  };
 
   // // Remove item from cart
 
@@ -167,7 +158,9 @@ export const ProductProvider = props => {
         detailProduct,
         addToCart,
         cart,
-        removeCartItem
+        removeCartItem,
+        incrementCount,
+        decrementCount
         // openModal: openModal,
         // closeModal: closeModal,
         // incrementCount: incrementCount,

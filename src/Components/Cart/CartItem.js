@@ -5,8 +5,10 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function CartItem({ item}) {
   const { id, img, title, price, count, total } = item;
-  // const { incrementCount, decrementCount, removeCartItem, resetCart } = value;
-  const{removeCartItem} = useContext(ProductContext)
+  // const { , removeCartItem, resetCart } = value;
+  const { incrementCount, decrementCount,removeCartItem } = useContext(
+    ProductContext
+  );
   return (
     <div className="row my-5 text-center">
       {/* Product Image */}
@@ -34,7 +36,7 @@ export default function CartItem({ item}) {
           <div>
             <span
               className="btn btn-black mx-1"
-              // onClick={() => decrementCount(id)}
+              onClick={() => decrementCount(id)}
             >
               {" "}
               -{" "}
@@ -42,7 +44,7 @@ export default function CartItem({ item}) {
             <span className="mx-1">{count}</span>
             <span
               className="btn btn-black mx-1"
-              // onClick={() => incrementCount(id)}
+              onClick={() => incrementCount(id)}
             >
               +
             </span>
