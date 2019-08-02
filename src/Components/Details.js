@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 
 const Details = () => {
-  const { detailProduct } = useContext(ProductContext);
+  const { detailProduct,addToCart } = useContext(ProductContext);
   const { id, title, img, info, roast, flavour, ingredients } = detailProduct;
 
   return (
@@ -26,9 +26,9 @@ const Details = () => {
           </p>
           <p> {info}</p>
           <Link to="/modal">
-            {/* <ButtonElement onClick={() => value.addToCart(id)}> */}
+            <ButtonElement onClick={() => addToCart(id)}>
               Add to cart
-            {/* </ButtonElement> */}
+            </ButtonElement>
           </Link>
           {"   "}
           <Link to="/">

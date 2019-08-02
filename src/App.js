@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Components/Navbar";
 import ProductList from "./Components/ProductList";
 // import Modal from "./Components/Modal";
-// import Cart from "./Components/Cart/Cart";
+import Cart from "./Components/Cart/Cart";
 import Details from "./Components/Details";
 
 function App() {
@@ -16,9 +16,9 @@ function App() {
         <Route exact path="/" component={ProductList}>
           <ProductList />
         </Route>
-        {/* <Route path="/cart" component={Cart}>
+        <Route path="/cart" component={Cart}>
           <Cart />
-        </Route> */}
+        </Route>
         <Route path="/details" component={Details}>
           <Details />
         </Route>{" "}

@@ -14,11 +14,13 @@ export const ProductProvider = props => {
   //   cartTotal: 0
   // };
 
-  //  setting "products on state"
+  // state declaration
 
-  const[products,setProducts] = useState([]);
+    const [products, setProducts] = useState([]);
     const [detailProduct, setDetailProduct] = useState({});
+    const [cart, setCart] = useState([]);
 
+  //  setting "products on state"
 
   useEffect(() => {
     settingProducts();
@@ -30,7 +32,7 @@ export const ProductProvider = props => {
       const singleItem = { ...item };
       products = [...products, singleItem];
     });
-    setProducts(products)
+    setProducts(products);
     console.log(products);
   };
 
@@ -41,41 +43,43 @@ export const ProductProvider = props => {
   };
   const handleDetail = id => {
     const product = getProduct(id);
-    setDetailProduct(product)
+    setDetailProduct(product);
   };
 
   // Add to Cart
 
-  // addToCart = id => {
-  //   const cartItem = this.getProduct(id);
+  const addToCart = id => {
+    const cartItem = getProduct(id);
 
-  //   const cart = [...this.state.cart];
+    const newCart = [...cart];
 
-  //   // If item is already in the cart,  increment the count
+    // If item is already in the cart,  increment the count
 
-  //   if (cart.indexOf(cartItem) >= 0) {
-  //     this.incrementCount(id);
-  //   }
-  //   // If item is not added, add it to cart.
-  //   else {
-  //     cartItem.count = 1;
-  //     const price = cartItem.price;
-  //     cartItem.total = price;
+    // if (cart.indexOf(cartItem) >= 0) {
+    //   incrementCount(id);
+    // }
+    // If item is not added, add it to cart.
+    // else {
+    cartItem.count = 1;
+    const price = cartItem.price;
+    cartItem.total = price;
+    newCart.push(cartItem);
 
-  //     this.setState(
-  //       {
-  //         cart: [...this.state.cart, cartItem]
-  //       },
-  //       () => this.addTotals()
-  //     );
-  //   }
-  // };
+    // setState(
+    //   {
+    //     cart: [...state.cart, cartItem]
+    //   },
+    //   () => addTotals()
+    // );
+    setCart(newCart)
+    // }
+  };
 
   // Opening of Modal upon adding items to the cart
 
   // openModal = id => {
-  //   const product = this.getProduct(id);
-  //   this.setState({
+  //   const product = getProduct(id);
+  //   setState({
   //     modalProduct: product
   //   });
   // };
@@ -83,38 +87,38 @@ export const ProductProvider = props => {
   // Increment product count in cart
 
   // incrementCount = id => {
-  //   let tempCart = [...this.state.cart];
+  //   let tempCart = [...state.cart];
 
   //   const incrementedCartItem = tempCart.find(item => item.id === id);
   //   incrementedCartItem.count += 1;
   //   incrementedCartItem.total =
   //     incrementedCartItem.price * incrementedCartItem.count;
 
-  //   this.setState(
+  //   setState(
   //     {
   //       cart: [...tempCart]
   //     },
-  //     this.addTotals()
+  //     addTotals()
   //   );
   // };
   // Decrement product count in cart
 
   // decrementCount = id => {
-  //   let tempCart = [...this.state.cart];
+  //   let tempCart = [...state.cart];
 
   //   const decrementedCartItem = tempCart.find(item => item.id === id);
 
   //   decrementedCartItem.count -= 1;
   //   if (decrementedCartItem.count === 0) {
-  //     this.removeCartItem(id);
+  //     removeCartItem(id);
   //   } else {
   //     decrementedCartItem.total =
   //       decrementedCartItem.price * decrementedCartItem.count;
-  //     this.setState(
+  //     setState(
   //       {
   //         cart: [...tempCart]
   //       },
-  //       this.addTotals()
+  //       addTotals()
   //     );
   //   }
   // };
@@ -122,25 +126,25 @@ export const ProductProvider = props => {
   // // Remove item from cart
 
   // removeCartItem = id => {
-  //   const newCartItems = this.state.cart.filter(item => id !== item.id);
-  //   this.setState(
+  //   const newCartItems = state.cart.filter(item => id !== item.id);
+  //   setState(
   //     {
   //       cart: [...newCartItems]
   //     },
-  //     () => this.addTotals()
+  //     () => addTotals()
   //   );
   // };
 
   // // Reset cart
 
   // resetCart = () => {
-  //   this.setState(
+  //   setState(
   //     {
   //       cart: []
   //     },
   //     () => {
-  //       this.setProducts();
-  //       this.addTotals();
+  //       setProducts();
+  //       addTotals();
   //     }
   //   );
   // };
@@ -148,11 +152,11 @@ export const ProductProvider = props => {
   // //  Calculate total amount in cart
   // addTotals = () => {
   //   let cartSubTotal = 0;
-  //   this.state.cart.map(item => (cartSubTotal += item.total));
+  //   state.cart.map(item => (cartSubTotal += item.total));
   //   const tempTax = cartSubTotal * 0.1;
   //   const cartTax = parseFloat(tempTax.toFixed(2));
   //   const cartTotal = cartSubTotal + cartTax;
-  //   this.setState({
+  //   setState({
   //     cartSubTotal,
   //     cartTax,
   //     cartTotal
@@ -161,19 +165,19 @@ export const ProductProvider = props => {
 
   return (
     <ProductContext.Provider
-      value={
-        {products,
-          handleDetail,
-          detailProduct
-          // addToCart: this.addToCart,
-          // openModal: this.openModal,
-          // closeModal: this.closeModal,
-          // incrementCount: this.incrementCount,
-          // decrementCount: this.decrementCount,
-          // removeCartItem: this.removeCartItem,
-          // resetCart: this.resetCart
-        }
-      }
+      value={{
+        products,
+        handleDetail,
+        detailProduct,
+        addToCart
+        // addToCart: addToCart,
+        // openModal: openModal,
+        // closeModal: closeModal,
+        // incrementCount: incrementCount,
+        // decrementCount: decrementCount,
+        // removeCartItem: removeCartItem,
+        // resetCart: resetCart
+      }}
     >
       {props.children}
     </ProductContext.Provider>
