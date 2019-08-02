@@ -1,185 +1,178 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { storeProducts, detailProduct } from "./data";
 
-const ProductContext = React.createContext();
+export const ProductContext = React.createContext();
 
-class ProductProvider extends Component {
-  state = {
-    products: [],
-    detailProduct,
-    cart: [],
-    modalProduct: detailProduct,
-    cartSubTotal: 0,
-    cartTax: 0,
-    cartTotal: 0
-  };
+export const ProductProvider = props => {
+  // state = {
+  //   products: [],
+  //   detailProduct,
+  //   cart: [],
+  //   modalProduct: detailProduct,
+  //   cartSubTotal: 0,
+  //   cartTax: 0,
+  //   cartTotal: 0
+  // };
 
   //  setting "products on state"
 
-  componentDidMount() {
-    this.setProducts();
-  }
+  const[products,setProducts] = useState([]);
 
-  setProducts = () => {
+  useEffect(() => {
+    settingProducts();
+  }, []);
+
+  const settingProducts = () => {
     let products = [];
     storeProducts.forEach(item => {
       const singleItem = { ...item };
       products = [...products, singleItem];
     });
-    this.setState({
-      products
-    });
+    setProducts(products)
+    console.log(products);
   };
 
   // Handling the click event to show Product details.
 
-  getProduct = id => {
-    return this.state.products.find(item => item.id === id);
-  };
-  handleDetail = id => {
-    const product = this.getProduct(id);
-    this.setState({
-      detailProduct: product
-    });
-  };
+  // const getProduct = id => {
+  //   return this.state.products.find(item => item.id === id);
+  // };
+  // const handleDetail = id => {
+  //   const product = getProduct(id);
+  //   setProducts()
+  // };
 
   // Add to Cart
 
-  addToCart = id => {
+  // addToCart = id => {
+  //   const cartItem = this.getProduct(id);
 
-    const cartItem = this.getProduct(id);
+  //   const cart = [...this.state.cart];
 
-    const cart = [...this.state.cart];
+  //   // If item is already in the cart,  increment the count
 
-    // If item is already in the cart,  increment the count
+  //   if (cart.indexOf(cartItem) >= 0) {
+  //     this.incrementCount(id);
+  //   }
+  //   // If item is not added, add it to cart.
+  //   else {
+  //     cartItem.count = 1;
+  //     const price = cartItem.price;
+  //     cartItem.total = price;
 
-    if (cart.indexOf(cartItem) >= 0) {
-      this.incrementCount(id);
-    }
-    // If item is not added, add it to cart.
+  //     this.setState(
+  //       {
+  //         cart: [...this.state.cart, cartItem]
+  //       },
+  //       () => this.addTotals()
+  //     );
+  //   }
+  // };
 
-    else {
-      cartItem.count = 1;
-      const price = cartItem.price;
-      cartItem.total = price;
-
-      this.setState(
-        {
-          cart: [...this.state.cart, cartItem]
-        },
-        () => this.addTotals()
-      );
-    }
-  };
-  
   // Opening of Modal upon adding items to the cart
 
-  openModal = id => {
-    const product = this.getProduct(id);
-    this.setState({
-      modalProduct: product
-    });
-  };
+  // openModal = id => {
+  //   const product = this.getProduct(id);
+  //   this.setState({
+  //     modalProduct: product
+  //   });
+  // };
 
   // Increment product count in cart
 
-  incrementCount = id => {
-    let tempCart = [...this.state.cart];
+  // incrementCount = id => {
+  //   let tempCart = [...this.state.cart];
 
-    const incrementedCartItem = tempCart.find(item => item.id === id);
-    incrementedCartItem.count += 1;
-    incrementedCartItem.total =
-      incrementedCartItem.price * incrementedCartItem.count;
+  //   const incrementedCartItem = tempCart.find(item => item.id === id);
+  //   incrementedCartItem.count += 1;
+  //   incrementedCartItem.total =
+  //     incrementedCartItem.price * incrementedCartItem.count;
 
-    this.setState(
-      {
-        cart: [...tempCart]
-      },
-      this.addTotals()
-    );
-  };
+  //   this.setState(
+  //     {
+  //       cart: [...tempCart]
+  //     },
+  //     this.addTotals()
+  //   );
+  // };
   // Decrement product count in cart
 
-  decrementCount = id => {
-    let tempCart = [...this.state.cart];
+  // decrementCount = id => {
+  //   let tempCart = [...this.state.cart];
 
-    const decrementedCartItem = tempCart.find(item => item.id === id);
+  //   const decrementedCartItem = tempCart.find(item => item.id === id);
 
-    decrementedCartItem.count -= 1;
-    if (decrementedCartItem.count === 0) {
-      this.removeCartItem(id);
-    } else {
-      decrementedCartItem.total =
-        decrementedCartItem.price * decrementedCartItem.count;
-      this.setState(
-        {
-          cart: [...tempCart]
-        },
-        this.addTotals()
-      );
-    }
-  };
+  //   decrementedCartItem.count -= 1;
+  //   if (decrementedCartItem.count === 0) {
+  //     this.removeCartItem(id);
+  //   } else {
+  //     decrementedCartItem.total =
+  //       decrementedCartItem.price * decrementedCartItem.count;
+  //     this.setState(
+  //       {
+  //         cart: [...tempCart]
+  //       },
+  //       this.addTotals()
+  //     );
+  //   }
+  // };
 
-  // Remove item from cart
+  // // Remove item from cart
 
-  removeCartItem = id => {
+  // removeCartItem = id => {
+  //   const newCartItems = this.state.cart.filter(item => id !== item.id);
+  //   this.setState(
+  //     {
+  //       cart: [...newCartItems]
+  //     },
+  //     () => this.addTotals()
+  //   );
+  // };
 
-    const newCartItems = this.state.cart.filter(item => id !== item.id);
-    this.setState(
-      {
-        cart: [...newCartItems]
-      },
-      () => this.addTotals()
-    );
-  };
+  // // Reset cart
 
-  // Reset cart
+  // resetCart = () => {
+  //   this.setState(
+  //     {
+  //       cart: []
+  //     },
+  //     () => {
+  //       this.setProducts();
+  //       this.addTotals();
+  //     }
+  //   );
+  // };
 
-  resetCart = () => {
-    this.setState(
-      {
-        cart: []
-      },
-      () => {
-        this.setProducts();
-        this.addTotals();
+  // //  Calculate total amount in cart
+  // addTotals = () => {
+  //   let cartSubTotal = 0;
+  //   this.state.cart.map(item => (cartSubTotal += item.total));
+  //   const tempTax = cartSubTotal * 0.1;
+  //   const cartTax = parseFloat(tempTax.toFixed(2));
+  //   const cartTotal = cartSubTotal + cartTax;
+  //   this.setState({
+  //     cartSubTotal,
+  //     cartTax,
+  //     cartTotal
+  //   });
+  // };
+
+  return (
+    <ProductContext.Provider
+      value={
+        {products
+          // handleDetail,
+          // addToCart: this.addToCart,
+          // openModal: this.openModal,
+          // closeModal: this.closeModal,
+          // incrementCount: this.incrementCount,
+          // decrementCount: this.decrementCount,
+          // removeCartItem: this.removeCartItem,
+          // resetCart: this.resetCart
+        }
       }
-    );
-  };
-
-  //  Calculate total amount in cart
-  addTotals = () => {
-    let cartSubTotal = 0;
-    this.state.cart.map(item => (cartSubTotal += item.total));
-    const tempTax = cartSubTotal * 0.1;
-    const cartTax = parseFloat(tempTax.toFixed(2));
-    const cartTotal = cartSubTotal + cartTax;
-    this.setState({
-      cartSubTotal,
-      cartTax,
-      cartTotal
-    });
-  };
-
-  render() {
-    return (
-      <ProductContext.Provider
-        value={{
-          ...this.state,
-          handleDetail: this.handleDetail,
-          addToCart: this.addToCart,
-          openModal: this.openModal,
-          closeModal: this.closeModal,
-          incrementCount: this.incrementCount,
-          decrementCount: this.decrementCount,
-          removeCartItem: this.removeCartItem,
-          resetCart: this.resetCart
-        }}
-      >
-        {this.props.children}
-      </ProductContext.Provider>
-    );
-  }
-}
-const ProductConsumer = ProductContext.Consumer;
-export { ProductProvider, ProductConsumer };
+    >
+      {props.children}
+    </ProductContext.Provider>
+  );
+};

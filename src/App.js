@@ -4,9 +4,9 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Components/Navbar";
 import ProductList from "./Components/ProductList";
-import Modal from "./Components/Modal";
-import Cart from "./Components/Cart/Cart";
-import Details from "./Components/Details";
+// import Modal from "./Components/Modal";
+// import Cart from "./Components/Cart/Cart";
+// import Details from "./Components/Details";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route exact path="/" component={ProductList}>
           <ProductList />
         </Route>
-        <Route path="/cart" component={Cart}>
+        {/* <Route path="/cart" component={Cart}>
           <Cart />
         </Route>
         <Route path="/details" component={Details}>
@@ -24,7 +24,7 @@ function App() {
         </Route>{" "}
         <Route path="/modal" component={Modal}>
           <Modal />
-        </Route>
+        </Route> */}
       </Switch>
       {/* <Modal /> */}
     </div>
