@@ -19,6 +19,9 @@ export const ProductProvider = props => {
   const [products, setProducts] = useState([]);
   const [detailProduct, setDetailProduct] = useState({});
   const [cart, setCart] = useState([]);
+  const [cartSubTotal, setCartSubTotal] = useState(0);
+  const [cartTax, setCartTax] = useState(0);
+  const [cartTotal, setCartTotal] = useState(0);
 
   //  setting "products on state"
 
@@ -55,24 +58,18 @@ export const ProductProvider = props => {
 
     // If item is already in the cart,  increment the count
 
-    // if (cart.indexOf(cartItem) >= 0) {
-    //   incrementCount(id);
-    // }
+    if (cart.indexOf(cartItem) >= 0) {
+      incrementCount(id);
+    }
     // If item is not added, add it to cart.
-    // else {
-    cartItem.count = 1;
-    const price = cartItem.price;
-    cartItem.total = price;
-    newCart.push(cartItem);
+    else {
+      cartItem.count = 1;
+      const price = cartItem.price;
+      cartItem.total = price;
+      newCart.push(cartItem);
 
-    // setState(
-    //   {
-    //     cart: [...state.cart, cartItem]
-    //   },
-    //   () => addTotals()
-    // );
-    setCart(newCart);
-    // }
+      setCart(newCart);
+    }
   };
 
   // Opening of Modal upon adding items to the cart
@@ -118,7 +115,6 @@ export const ProductProvider = props => {
 
   const removeCartItem = id => {
     const newCartItems = cart.filter(item => id !== item.id);
-
     setCart(newCartItems);
   };
 
@@ -137,18 +133,16 @@ export const ProductProvider = props => {
   // };
 
   // //  Calculate total amount in cart
-  // addTotals = () => {
-  //   let cartSubTotal = 0;
-  //   state.cart.map(item => (cartSubTotal += item.total));
-  //   const tempTax = cartSubTotal * 0.1;
-  //   const cartTax = parseFloat(tempTax.toFixed(2));
-  //   const cartTotal = cartSubTotal + cartTax;
-  //   setState({
-  //     cartSubTotal,
-  //     cartTax,
-  //     cartTotal
-  //   });
-  // };
+ const addTotals = () => {
+    let cartSubTotal = 0;
+    cart.map(item => (cartSubTotal += item.total));
+    const tempTax = cartSubTotal * 0.1;
+    const cartTax = parseFloat(tempTax.toFixed(2));
+    const cartTotal = cartSubTotal + cartTax;
+   setCartSubTotal(cartSubTotal);
+   setCartTax(cartTax);
+   setCartTotal(cartTotal)
+  };
 
   return (
     <ProductContext.Provider
@@ -160,12 +154,10 @@ export const ProductProvider = props => {
         cart,
         removeCartItem,
         incrementCount,
-        decrementCount
-        // openModal: openModal,
-        // closeModal: closeModal,
-        // incrementCount: incrementCount,
-        // decrementCount: decrementCount,
-        // resetCart: resetCart
+        decrementCount,
+        cartSubTotal,
+        cartTax,
+        cartTotal
       }}
     >
       {props.children}

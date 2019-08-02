@@ -16,7 +16,7 @@ const Cart = () => {
         <h1 className="title">Your Cart</h1>
         <CartColumns />
         <CartList />
-        {/* <CartTotals value={value} /> */}
+        <CartTotals />
         <Link to="/">
           <button className="btn btn-outline-secondary mx-auto d-flex justify-content-center">
             Continue shopping!
