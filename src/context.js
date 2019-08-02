@@ -169,7 +169,8 @@ export const ProductProvider = props => {
         products,
         handleDetail,
         detailProduct,
-        addToCart
+        addToCart,
+        cart
         // addToCart: addToCart,
         // openModal: openModal,
         // closeModal: closeModal,

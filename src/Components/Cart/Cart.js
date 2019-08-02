@@ -1,16 +1,13 @@
-import React, { Component } from "react";
-import { ProductConsumer } from "../../context";
+import React, { useContext } from "react";
+import {ProductContext}  from "../../context";
 import { Link } from "react-router-dom";
 import CartColumns from "./CartColumns";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 
-export default class Cart extends Component {
-  render() {
-    return (
-      <ProductConsumer>
-        {value => {
-          const { cart } = value;
+ const Cart = ()  => {
+
+          const { cart } = useContext(ProductContext);
 
           // If there are items in cart
 
@@ -19,8 +16,8 @@ export default class Cart extends Component {
               <React.Fragment>
                 <h1 className="title">Your Cart</h1>
                 <CartColumns />
-                <CartList value={value} />
-                <CartTotals value={value} />
+                {/* <CartList value={value} /> */}
+                {/* <CartTotals value={value} /> */}
                 <Link to="/">
                   <button className="btn btn-outline-secondary mx-auto d-flex justify-content-center">
                     Continue shopping!
@@ -42,8 +39,5 @@ export default class Cart extends Component {
               </div>
             );
           }
-        }}
-      </ProductConsumer>
-    );
-  }
-}
+        }
+export default Cart;
