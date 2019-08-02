@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import styled from "styled-components";
 import { ProductContext } from "../context";
 import { Link } from "react-router-dom";
@@ -8,6 +8,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
  const Product = ({product}) => {
     const { id, img, title, price } = product;
+    const{handleDetail}  = useContext(ProductContext)
 
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
@@ -18,7 +19,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
                 className="card-img-top"
                 src={img}
                 alt={title}
-                // onClick={() => value.handleDetail(id)}
+                onClick={() => handleDetail(id)}
               />
             </Link>
           </div>

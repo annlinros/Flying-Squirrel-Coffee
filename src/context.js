@@ -17,6 +17,8 @@ export const ProductProvider = props => {
   //  setting "products on state"
 
   const[products,setProducts] = useState([]);
+    const [detailProduct, setDetailProduct] = useState({});
+
 
   useEffect(() => {
     settingProducts();
@@ -34,13 +36,13 @@ export const ProductProvider = props => {
 
   // Handling the click event to show Product details.
 
-  // const getProduct = id => {
-  //   return this.state.products.find(item => item.id === id);
-  // };
-  // const handleDetail = id => {
-  //   const product = getProduct(id);
-  //   setProducts()
-  // };
+  const getProduct = id => {
+    return products.find(item => item.id === id);
+  };
+  const handleDetail = id => {
+    const product = getProduct(id);
+    setDetailProduct(product)
+  };
 
   // Add to Cart
 
@@ -160,8 +162,9 @@ export const ProductProvider = props => {
   return (
     <ProductContext.Provider
       value={
-        {products
-          // handleDetail,
+        {products,
+          handleDetail,
+          detailProduct
           // addToCart: this.addToCart,
           // openModal: this.openModal,
           // closeModal: this.closeModal,
