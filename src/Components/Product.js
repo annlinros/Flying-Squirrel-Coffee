@@ -8,7 +8,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
  const Product = ({product}) => {
     const { id, img, title, price } = product;
-    const{handleDetail}  = useContext(ProductContext)
+    const{handleDetail,addToCart}  = useContext(ProductContext)
 
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
@@ -32,10 +32,10 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
               <Link to="/modal">
                 <ButtonElement
                   className="cart-btn"
-                  // onClick={() => {
-                  //   value.addToCart(id);
-                  //   value.openModal(id);
-                  // }}
+                  onClick={() => {
+                    addToCart(id);
+                    // value.openModal(id);
+                  }}
                 >
                   ADD TO CART <FontAwesomeIcon icon={faShoppingCart} />
                 </ButtonElement>

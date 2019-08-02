@@ -16,9 +16,9 @@ export const ProductProvider = props => {
 
   // state declaration
 
-    const [products, setProducts] = useState([]);
-    const [detailProduct, setDetailProduct] = useState({});
-    const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [detailProduct, setDetailProduct] = useState({});
+  const [cart, setCart] = useState([]);
 
   //  setting "products on state"
 
@@ -71,7 +71,7 @@ export const ProductProvider = props => {
     //   },
     //   () => addTotals()
     // );
-    setCart(newCart)
+    setCart(newCart);
     // }
   };
 
@@ -125,15 +125,11 @@ export const ProductProvider = props => {
 
   // // Remove item from cart
 
-  // removeCartItem = id => {
-  //   const newCartItems = state.cart.filter(item => id !== item.id);
-  //   setState(
-  //     {
-  //       cart: [...newCartItems]
-  //     },
-  //     () => addTotals()
-  //   );
-  // };
+  const removeCartItem = id => {
+    const newCartItems = cart.filter(item => id !== item.id);
+
+    setCart(newCartItems);
+  };
 
   // // Reset cart
 
@@ -170,13 +166,12 @@ export const ProductProvider = props => {
         handleDetail,
         detailProduct,
         addToCart,
-        cart
-        // addToCart: addToCart,
+        cart,
+        removeCartItem
         // openModal: openModal,
         // closeModal: closeModal,
         // incrementCount: incrementCount,
         // decrementCount: decrementCount,
-        // removeCartItem: removeCartItem,
         // resetCart: resetCart
       }}
     >
