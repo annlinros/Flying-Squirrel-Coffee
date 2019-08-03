@@ -118,19 +118,11 @@ export const ProductProvider = props => {
     setCart(newCartItems);
   };
 
-  // // Reset cart
+  //  Reset cart
 
-  // resetCart = () => {
-  //   setState(
-  //     {
-  //       cart: []
-  //     },
-  //     () => {
-  //       setProducts();
-  //       addTotals();
-  //     }
-  //   );
-  // };
+  const resetCart = () => {
+    setCart([])
+  };
 
   // //  Calculate total amount in cart
  const addTotals = () => {
@@ -143,6 +135,8 @@ export const ProductProvider = props => {
    setCartTax(cartTax);
    setCartTotal(cartTotal)
   };
+//  runs the addTotals everytime cart changes, to update the CartTotals component.
+ useEffect(() => addTotals(), [cart])
 
   return (
     <ProductContext.Provider
@@ -155,6 +149,7 @@ export const ProductProvider = props => {
         removeCartItem,
         incrementCount,
         decrementCount,
+        resetCart,
         cartSubTotal,
         cartTax,
         cartTotal

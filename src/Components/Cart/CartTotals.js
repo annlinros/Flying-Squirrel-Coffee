@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ProductContext } from "../../context";
 
 export default function CartTotals() {
-  const { cartSubTotal, cartTax, cartTotal} = useContext(
+  const { cartSubTotal, cartTax, cartTotal, resetCart} = useContext(
     ProductContext
   );
   return (
@@ -12,7 +12,7 @@ export default function CartTotals() {
           <div className="w-100  d-flex flex-column justify-content-center align-items-end">
             <button
               className="btn btn-outline-danger"
-              // onClick={() => resetCart()}
+              onClick={() => resetCart()}
             >
               Clear Cart
             </button>
