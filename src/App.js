@@ -4,7 +4,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Components/Navbar";
 import ProductList from "./Components/ProductList";
-// import Modal from "./Components/Modal";
+import Modal from "./Components/Modal";
 import Cart from "./Components/Cart/Cart";
 import Details from "./Components/Details";
 
@@ -22,11 +22,10 @@ function App() {
         <Route path="/details" component={Details}>
           <Details />
         </Route>{" "}
-        {/* <Route path="/modal" component={Modal}>
+        <Route path="/modal" component={Modal}>
           <Modal />
-        </Route> */}
+        </Route>
       </Switch>
-      {/* <Modal /> */}
     </div>
   );
 }

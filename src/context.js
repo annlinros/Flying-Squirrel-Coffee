@@ -1,23 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { storeProducts, detailProduct } from "./data";
+import { storeProducts, detailOfProduct } from "./data";
 
 export const ProductContext = React.createContext();
 
 export const ProductProvider = props => {
-  // state = {
-  //   products: [],
-  //   detailProduct,
-  //   cart: [],
-  //   modalProduct: detailProduct,
-  //   cartSubTotal: 0,
-  //   cartTax: 0,
-  //   cartTotal: 0
-  // };
-
   // state declaration
-
   const [products, setProducts] = useState([]);
   const [detailProduct, setDetailProduct] = useState({});
+  const [modalProduct, setModalProduct] = useState(detailOfProduct);
   const [cart, setCart] = useState([]);
   const [cartSubTotal, setCartSubTotal] = useState(0);
   const [cartTax, setCartTax] = useState(0);
@@ -74,12 +64,10 @@ export const ProductProvider = props => {
 
   // Opening of Modal upon adding items to the cart
 
-  // openModal = id => {
-  //   const product = getProduct(id);
-  //   setState({
-  //     modalProduct: product
-  //   });
-  // };
+  const openModal = id => {
+    const product = getProduct(id);
+    setModalProduct(product);
+  };
 
   // Increment product count in cart
 
@@ -121,22 +109,22 @@ export const ProductProvider = props => {
   //  Reset cart
 
   const resetCart = () => {
-    setCart([])
+    setCart([]);
   };
 
   // //  Calculate total amount in cart
- const addTotals = () => {
+  const addTotals = () => {
     let cartSubTotal = 0;
     cart.map(item => (cartSubTotal += item.total));
     const tempTax = cartSubTotal * 0.1;
     const cartTax = parseFloat(tempTax.toFixed(2));
     const cartTotal = cartSubTotal + cartTax;
-   setCartSubTotal(cartSubTotal);
-   setCartTax(cartTax);
-   setCartTotal(cartTotal)
+    setCartSubTotal(cartSubTotal);
+    setCartTax(cartTax);
+    setCartTotal(cartTotal);
   };
-//  runs the addTotals everytime cart changes, to update the CartTotals component.
- useEffect(() => addTotals(), [cart])
+  //  runs the addTotals everytime cart changes, to update the CartTotals component.
+  useEffect(() => addTotals(), [cart]);
 
   return (
     <ProductContext.Provider
@@ -146,6 +134,8 @@ export const ProductProvider = props => {
         detailProduct,
         addToCart,
         cart,
+        modalProduct,
+        openModal,
         removeCartItem,
         incrementCount,
         decrementCount,

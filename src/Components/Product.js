@@ -8,7 +8,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
  const Product = ({product}) => {
     const { id, img, title, price } = product;
-    const{handleDetail,addToCart}  = useContext(ProductContext)
+    const{handleDetail,addToCart,openModal}  = useContext(ProductContext)
 
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
@@ -34,7 +34,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
                   className="cart-btn"
                   onClick={() => {
                     addToCart(id);
-                    // value.openModal(id);
+                    openModal(id);
                   }}
                 >
                   ADD TO CART <FontAwesomeIcon icon={faShoppingCart} />
