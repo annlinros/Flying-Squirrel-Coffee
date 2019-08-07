@@ -14,17 +14,16 @@ body {
   height: 4rem;
 }
 
-.title {
+h4 {
   text-align: center;
-  padding: 2rem;
   color: var(--mainBrown) ;
   font-size: 2.5rem
 }
 /* PRODUCT COMPONENT */
-.products{
-  position:relative;
+.container{
   background-color: #000;
-  padding: 4rem
+  margin: none;
+  padding: none;
 }
 /* DETAILS COMPONENT */
 .details{
