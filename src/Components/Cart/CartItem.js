@@ -3,10 +3,10 @@ import { ProductContext } from "../../context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function CartItem({ item}) {
+export default function CartItem({ item }) {
   const { id, img, title, price, count, total } = item;
   // const { , removeCartItem, resetCart } = value;
-  const { incrementCount, decrementCount,removeCartItem } = useContext(
+  const { incrementCount, decrementCount, removeCartItem } = useContext(
     ProductContext
   );
   return (

@@ -9,7 +9,7 @@ export default function CartTotals() {
     <React.Fragment>
       <div className="container">
         <div className="row">
-          <div className="w-100  d-flex flex-column justify-content-center align-items-end">
+          <div className="w-100  d-flex flex-column justify-content-center align-items-end px-5">
             <button
               className="btn btn-outline-danger"
               onClick={() => resetCart()}

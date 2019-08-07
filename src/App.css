@@ -8,22 +8,21 @@ body {
 .navbar{
   height: 5rem;
   width: 100vw;
+  background: #fff
 }
 .navbar-brand {
   width: 4rem;
   height: 4rem;
 }
-
-h4 {
+h3{
   text-align: center;
   color: var(--mainBrown) ;
   font-size: 2.5rem
 }
 /* PRODUCT COMPONENT */
-.container{
+.products{
   background-color: #000;
-  margin: none;
-  padding: none;
+  padding: 4rem;
 }
 /* DETAILS COMPONENT */
 .details{

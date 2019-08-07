@@ -8,7 +8,6 @@ import Product from "./Product";
   const {products} = useContext(ProductContext);
 
         return (
-            <div>
                 <div className="products">
                     <div className='row'>
                             {
@@ -16,7 +15,6 @@ import Product from "./Product";
                             }                        
                     </div>
                 </div>
-            </div>
               )
     }
 

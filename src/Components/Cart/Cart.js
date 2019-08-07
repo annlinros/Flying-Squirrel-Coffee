@@ -13,15 +13,16 @@ const Cart = () => {
   if (cart.length > 0) {
     return (
       <React.Fragment>
-        <h1 className="title">Your Cart</h1>
+        <h3 className="p-2">Your Cart</h3>
+        <hr />
         <CartColumns />
         <CartList />
         <CartTotals />
-        <Link to="/">
-          <button className="btn btn-outline-secondary mx-auto d-flex justify-content-center">
-            Continue shopping!
-          </button>
-        </Link>
+        <div className="d-flex justify-content-center mb-3">
+          <Link to="/">
+            <button className="btn btn-dark">Continue shopping!</button>
+          </Link>
+        </div>
       </React.Fragment>
     );
   } else {
@@ -29,9 +30,9 @@ const Cart = () => {
 
     return (
       <div className="d-flex flex-column align-items-center p-5">
-        <h1 className="text-center">Your cart is empty!</h1>
+        <h2 className="text-center">Your cart is empty!</h2>
         <Link to="/">
-          <button className="btn btn-outline-secondary">Start shopping!</button>
+          <button className="btn btn-dark mt-5">Start shopping!</button>
         </Link>
       </div>
     );
