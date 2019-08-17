@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
-import { ProductConsumer } from "../context";
+import React, { useContext } from 'react';
+import { ProductContext } from "../context";
 import Product from "./Product";
 
 
-export default class ProductList extends Component {
-    render() {
+ const ProductList = () =>  {
+
+  const {products} = useContext(ProductContext);
 
         return (
-            <div>
                 <div className="products">
                     <div className='row'>
-                        <ProductConsumer>
                             {
-                                value => value.products.map(product => <Product key={product.id} product={product}/>)
+                                 products.map(product => <Product key={product.id} product={product}/>)
                             }                        
-                        </ProductConsumer>
                     </div>
                 </div>
-            </div>
               )
     }
-}
+
+export default ProductList;

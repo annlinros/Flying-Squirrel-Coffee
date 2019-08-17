@@ -1,49 +1,41 @@
-import React, { Component } from "react";
-import { ProductConsumer } from "../../context";
+import React, { useContext } from "react";
+import { ProductContext } from "../../context";
 import { Link } from "react-router-dom";
 import CartColumns from "./CartColumns";
 import CartList from "./CartList";
 import CartTotals from "./CartTotals";
 
-export default class Cart extends Component {
-  render() {
+const Cart = () => {
+  const { cart } = useContext(ProductContext);
+
+  // If there are items in cart
+
+  if (cart.length > 0) {
     return (
-      <ProductConsumer>
-        {value => {
-          const { cart } = value;
+      <React.Fragment>
+        <h3 className="p-2">Your Cart</h3>
+        <hr />
+        <CartColumns />
+        <CartList />
+        <CartTotals />
+        <div className="d-flex justify-content-center mb-3">
+          <Link to="/">
+            <button className="btn btn-dark">Continue shopping!</button>
+          </Link>
+        </div>
+      </React.Fragment>
+    );
+  } else {
+    //   If cart is empty
 
-          // If there are items in cart
-
-          if (cart.length > 0) {
-            return (
-              <React.Fragment>
-                <h1 className="title">Your Cart</h1>
-                <CartColumns />
-                <CartList value={value} />
-                <CartTotals value={value} />
-                <Link to="/">
-                  <button className="btn btn-outline-secondary mx-auto d-flex justify-content-center">
-                    Continue shopping!
-                  </button>
-                </Link>
-              </React.Fragment>
-            );
-          } else {
-            //   If cart is empty
-
-            return (
-              <div className="d-flex flex-column align-items-center p-5">
-                <h1 className="text-center">Your cart is empty!</h1>
-                <Link to="/">
-                  <button className="btn btn-outline-secondary">
-                    Start shopping!
-                  </button>
-                </Link>
-              </div>
-            );
-          }
-        }}
-      </ProductConsumer>
+    return (
+      <div className="d-flex flex-column align-items-center p-5">
+        <h2 className="text-center">Your cart is empty!</h2>
+        <Link to="/">
+          <button className="btn btn-dark mt-5">Start shopping!</button>
+        </Link>
+      </div>
     );
   }
-}
+};
+export default Cart;

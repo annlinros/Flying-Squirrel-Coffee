@@ -106,7 +106,7 @@ export const storeProducts = [
   }
 ];
 
-export const detailProduct = {
+export const detailOfProduct = {
   id: 1,
   title: "Cafe Chic",
   img: "img/cafe-chic.jpg",

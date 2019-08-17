@@ -1,61 +1,54 @@
-import React, { Component } from "react";
+import React,{useContext} from "react";
 import styled from "styled-components";
-import { ProductConsumer } from "../context";
+import { ProductContext } from "../context";
 import { Link } from "react-router-dom";
 import { ButtonElement } from "./Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-export default class Product extends Component {
-  render() {
-    const { id, img, title, price } = this.props.product;
+ const Product = ({product}) => {
+    const { id, img, title, price } = product;
+    const{handleDetail,addToCart,openModal}  = useContext(ProductContext)
 
     return (
       <ProductWrapper className="col-sm-6 col-md-4 col-lg-3 my-3">
         <div className="card">
-          <ProductConsumer>
-            {value => (
-              <div className="img-container">
-                <Link to="/details">
-                  <img
-                    className="card-img-top"
-                    src={img}
-                    alt={title}
-                    onClick={() => value.handleDetail(id)}
-                  />
-                </Link>
-              </div>
-            )}
-          </ProductConsumer>
+          <div className="img-container">
+            <Link to="/details">
+              <img
+                className="card-img-top"
+                src={img}
+                alt={title}
+                onClick={() => handleDetail(id)}
+              />
+            </Link>
+          </div>
           <div className="card-footer d-flex justify-content-between ">
             <p className="card-title">{title}</p>
             <p>${price}</p>
           </div>
           <div>
-            <ProductConsumer>
-              {value => (
-                <React.Fragment>
-                  <Link to="/modal">
-                    <ButtonElement
-                      className="cart-btn"
-                      onClick={() => {
-                        value.addToCart(id);
-                        value.openModal(id);
-                      }}
-                    >
-                      ADD TO CART {" "}
-                      <FontAwesomeIcon icon={faShoppingCart} />
-                    </ButtonElement>
-                  </Link>
-                </React.Fragment>
-              )}
-            </ProductConsumer>
+            <React.Fragment>
+              <Link to="/modal">
+                <ButtonElement
+                  className="cart-btn"
+                  onClick={() => {
+                    addToCart(id);
+                    openModal(id);
+                  }}
+                >
+                  ADD TO CART <FontAwesomeIcon icon={faShoppingCart} />
+                </ButtonElement>
+              </Link>
+            </React.Fragment>
           </div>
         </div>
       </ProductWrapper>
     );
+
   }
-}
+
+export default Product;
 
 export const ProductWrapper = styled.div`
   .card {

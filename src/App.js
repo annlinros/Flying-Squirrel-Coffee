@@ -26,7 +26,6 @@ function App() {
           <Modal />
         </Route>
       </Switch>
-      {/* <Modal /> */}
     </div>
   );
 }

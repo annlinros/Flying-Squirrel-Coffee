@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "../../context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-export default function CartItem({ item, value }) {
+export default function CartItem({ item }) {
   const { id, img, title, price, count, total } = item;
-  const { incrementCount, decrementCount, removeCartItem, resetCart } = value;
+  // const { , removeCartItem, resetCart } = value;
+  const { incrementCount, decrementCount, removeCartItem } = useContext(
+    ProductContext
+  );
   return (
     <div className="row my-5 text-center">
       {/* Product Image */}

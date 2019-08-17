@@ -1,6 +1,6 @@
 import styled from "styled-components";
 export const ButtonElement = styled.button`
-  background: #fff;
+  background: ${props => (props.navBtn ? "none" : "#fff")};;
   border:none;
   padding: .5rem;
   font-size:  ${props => (props.navBtn ? "1.3rem" : "1rem")};
@@ -8,7 +8,7 @@ export const ButtonElement = styled.button`
   outline:none;
   &:hover{
     background:  ${props =>
-      props.navBtn ? "#fff" : "var(--mainBrown)"};
+      props.navBtn ? "none" : "var(--mainBrown)"};
     color: ${props => (props.navBtn ? "var(--mainBrown)" : "#000")};
 
   }

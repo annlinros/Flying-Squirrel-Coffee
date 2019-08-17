@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "../../context";
 
-export default function CartTotals({ value }) {
-  const { cartSubTotal, cartTax, cartTotal, resetCart } = value;
+export default function CartTotals() {
+  const { cartSubTotal, cartTax, cartTotal, resetCart} = useContext(
+    ProductContext
+  );
   return (
     <React.Fragment>
       <div className="container">
         <div className="row">
-          <div className="w-100  d-flex flex-column justify-content-center align-items-end">
+          <div className="w-100  d-flex flex-column justify-content-center align-items-end px-5">
             <button
               className="btn btn-outline-danger"
               onClick={() => resetCart()}
