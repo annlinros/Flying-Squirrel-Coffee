@@ -2,7 +2,7 @@ export const storeProducts = [
   {
     id: 1,
     title: "Cafe Chic",
-    img: "./public/img/cafe-chic.jpg",
+    img: "img/cafe-chic.jpg",
     price: 10,
     info:
       "Café Chic is meant to be consumed with milk, and works best when brewed using a traditional south-Indian filter",
