@@ -52,7 +52,7 @@ export default Product;
 
 export const ProductWrapper = styled.div`
   .card {
-    border: 0.1rem solid #fff;
+    border: 0.1rem solid #000;
     transition: all 0.2s linear;
   }
   .card-footer {
