@@ -16,6 +16,6 @@ Greatly inspired by https://www.flyingsquirrel.in/
     6. A reset button to clear the cart.
 
 ## Built with 
-HTML, CSS, ReactJS
+HTML, CSS, ReactJS (Hooks & Context API)
 
 Other Libraries - React-Bootstrap, Styled Components & Font Awesome
