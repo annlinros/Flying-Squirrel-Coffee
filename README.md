@@ -1,7 +1,7 @@
 # Flying-Squirrel-Coffee
 
 ## Demo:
-Watch it live (hosted on Netlify) :https://flying-squirrel-coffee.netlify.com
+Watch it live (hosted on Netlify) : https://flying-squirrel-coffee.netlify.com
 
 ## Description
 A mini clone of GIPHY using GIPHY API which performs following things: 
@@ -13,4 +13,4 @@ A mini clone of GIPHY using GIPHY API which performs following things:
 ## Built with 
 HTML, CSS, React
 
-Libraries used for css - React-Bootstrap & [Styled Components] (https://www.styled-components.com/)
+Libraries used for css - React-Bootstrap & [ Styled Components ] (https://www.styled-components.com/)
